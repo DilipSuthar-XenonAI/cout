@@ -1,10 +1,14 @@
 const fire= require("./config")
-const id = require("shortid")
+const nanoIns = require("nano-uid")
+const uid = nanoUid()
 const shortid = require("shortid")
 const baseurl  = "http://cout.herokuapp.com/"
 //function to store the url
-const share = (url,uid) => {
-  var generatedid = shortid.generate()
+const share = (url, uid) => {
+  var generatedid = ""
+  uid.generate(id, (err,id) => {
+    generatedid = id
+  })
   fire.fire.collection("users").doc(uid).collection("urls").doc(generatedid).set({
     url,
   })
