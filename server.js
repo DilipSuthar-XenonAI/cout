@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: false }))
 var uid  =  ""
 app.get("/", async (req, res) => {
   uid = await signin()
+  console.log(uid)
   var data = await save("urls",uid)
   res.render("index", {data})
 })
