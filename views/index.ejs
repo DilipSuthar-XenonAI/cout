@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cout</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="row" style="color: white;align-items:center;">
+            <p style="font-size: 20px;">Cout<span style="opacity: .5;"> a url shortner</span></p>
+        </div>
+        </div>  
+           <form id="head" method="POST">  
+              <input type="url" class="custom-input" name="url" value="https://" placeholder="Enter a url..." required="true"/>
+        </form>
+        <div class="urls">
+            <% if(data.length == 0) { %>
+                <i class="fas fa-quote-left" style="font-size: 50px;color: white;"></i>
+                
+                <%}else{data.forEach((e)=>{
+                var url  = e.url
+                %> 
+         <div class="short">
+             <a href="<%=e.surl %>" target="_blank" class="surl"><%=e.surl %></a>
+             <a href="<%=e.url %>" target="_blank"><%= url.substr(0,15)+"..."  %></a>
+             <div class="row">
+             <div class="circle" style="background-color:teal;"></div>
+             
+             <p style="margin-left: 5px;">Shortend</p>
+             <div class="circle" style="background-color: grey;"></div>
+             <p style="margin-left: 5px;">Original</p>
+             <form action="/del" method="POST">
+             <input value=<%=e.id%> hidden="true" name="id">
+             <button style="margin-left:10px ;"><i class="fas fa-trash"></i></button>
+            </form> 
+            </div>
+         </div>
+         <%})}%>
+        
+         
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
