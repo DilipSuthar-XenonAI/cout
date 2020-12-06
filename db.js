@@ -1,7 +1,7 @@
 const fire= require("./config")
 const id = require("shortid")
 const shortid = require("shortid")
-const baseurl  = "http://localhost:3000/"
+const baseurl  = "http://cout.herokuapp.com/"
 //function to store the url
 const share = (url,uid) => {
   var generatedid = shortid.generate()
