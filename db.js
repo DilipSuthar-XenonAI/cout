@@ -2,7 +2,7 @@ const fire= require("./config")
 const nanoIns = require("nano-uid")
 const nano = nanoIns()
 const shortid = require("shortid")
-const baseurl  = "http://cout.herokuapp.com/"
+const baseurl  = "https://cout.onrender.com/"
 //function to store the url
 const share = (url, uid) => {
   var generatedid = ""
